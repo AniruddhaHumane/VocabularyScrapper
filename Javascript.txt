@@ -1,0 +1,34 @@
+##### Word
+var t = document.getElementsByClassName("dynamictext")[0].innerText
+"diverge"
+
+#### Short Description
+var t = document.getElementsByClassName("short")[0].innerText
+"When two roads diverge, they split and go in different directions. If your opinion diverges from mine, we do not agree. To diverge means to move apart or be separate."
+
+#### Long Description
+var t = document.getElementsByClassName("long")[0].innerText
+"The poet, Robert Frost, wrote: "Two roads diverged in a wood, and I -/ I took the one less traveled by / And that has made all the difference." The word diverge in the poem carries both the meaning of separating and of being apart from the main. As a poet, it was Frost's job to use words properly. Here he does not diverge from this role."
+
+#### Definitions
+var t = document.querySelectorAll(".group")
+----- for loop
+var t1 = t[0].querySelectorAll(".ordinal")
+----- for loop
+var t2 = t1[0].querySelectorAll("h3.definition")
+----- for loop
+var t3 = t2[0].innerText
+
+#### Synonyms and antonyms
+----- for loop
+    if t1[0].querySelectorAll("dt")[0].innerText == "Synonyms:":
+        for i in t1[0].querySelectorAll("dd")[0].querySelectorAll("a.word"):
+            syn.append(i[0].innerText)
+    if t1[0].querySelectorAll("dt")[0].innerText == "Antonyms:":
+        for i in t1[0].querySelectorAll("dd")[0].querySelectorAll("a.word"):
+            anto.append(i[0].innerText)
+
+
+
+
+
