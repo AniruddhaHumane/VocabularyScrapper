@@ -16,7 +16,7 @@ url = "https://www.vocabulary.com/dictionary/"
 print(len(WordList))
 
 FinalDataFrame = pd.DataFrame(columns=['Word','ShortDefinition','LongDefinition','Meaning','Synonyms','Antonyms'])
-checkWord = ["chastise"]
+checkWord = ["venality"]
 for word in checkWord:
     page = urlopen(url+word)
     print("URL Opened")
@@ -59,24 +59,30 @@ for word in checkWord:
                 elif synAnt.text == "Antonyms:":
                     Anton.append([ i.text for i in dl.find_all("a", attrs={'class':'word'})])
 
-    print(word)
-    print(shortDescription)
-    print(longDescription)
-    print(', '.join(FinalDefs))
-    print(', '.join(sum(Synon, [])))
-    print(', '.join(sum(Anton, [])))
+    # print(word)
+    # print(shortDescription)
+    # print(longDescription)
+    # print(', '.join(FinalDefs))
+    # print(', '.join(sum(Synon, [])))
+    # print(', '.join(sum(Anton, [])))
 
-    tempDf = pd.DataFrame({
+        tempDf = pd.DataFrame({
+        'Category': ["Common Words"],
         'Word' : [word],
         'ShortDefinition' : [shortDescription],
-        'LongDefinition' : [longDescription],
+        'LongDefinition' : [longDescription.encode("utf-8")],
         'Meaning' : [', '.join(FinalDefs)],
         'Synonyms' : [', '.join(sum(Synon, []))],
-        'Antonyms' : [', '.join(sum(Anton, []))]
-        # 'Sentence' : ['; '.join(Sentences)]
+        'Antonyms' : [', '.join(sum(Anton, []))],
+        'Mnemonic' : [" "],
+        'Sentence' : [" "]
     })
 
-    FinalDataFrame = pd.concat([FinalDataFrame,tempDf])
+    tempDf = tempDf[['Category','Word','ShortDefinition','LongDefinition','Meaning','Synonyms','Antonyms','Mnemonic','Sentence']]
+    # tempDf.to_csv("Vocabulary.csv")
+    with open('vocab.csv', 'a') as f:
+        tempDf.to_csv(f, header=False)
+    # FinalDataFrame = pd.concat([FinalDataFrame,tempDf])
 
 FinalDataFrame = FinalDataFrame[['Word','Meaning','ShortDefinition','LongDefinition','Synonyms','Antonyms']]
 FinalDataFrame.head()
