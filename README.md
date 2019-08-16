@@ -22,7 +22,9 @@ Each word is seperated by comma.
 Add your words to this file.
 run the python file vocabularyScrapper.py
 
+---------------------------------------------------------------------------------------------------------------
 
 #### *DISCLAIMER*
-#### *NOTE - Using this is against their terms of use and your IP will get blocked.*
-#### *This code is available only for educational purposes. Me or this repository will not be held responsible for its usage and breach of terms of use and policies of vocabulary.com and mnemonicsdictionary.com*
+
+*NOTE - Using this is against their terms of use and your IP will get blocked.*
+*This code is available only for educational purposes. Me or this repository will not be held responsible for its usage and breach of terms of use and policies of vocabulary.com and mnemonicsdictionary.com*
