@@ -18,8 +18,20 @@ url = "https://www.vocabulary.com/dictionary/"
 print(len(WordList))
 
 FinalDataFrame = pd.DataFrame(columns=['Word','ShortDefinition','LongDefinition','Meaning','Synonyms','Antonyms'])
-#checkWord = ["commensurate"]
-for word in WordList:
+
+
+doneIndex = ""
+with open('doneList.txt', 'r') as f:
+    doneIndex = f.read()
+flag = False
+
+
+#checkWord = [#"bona fide"]
+
+for i,word in enumerate(WordList):
+    if(i != (0 if doneIndex == '' else int(doneIndex)+1) and flag is False):
+        continue
+    flag = True
     page = urlopen(url+word.lower())
     #print("URL Opened")
 
@@ -116,6 +128,9 @@ for word in WordList:
     with open('vocab.csv', 'a') as f:
         tempDf.to_csv(f, header=False)
     # FinalDataFrame = pd.concat([FinalDataFrame,tempDf])
+
+    with open('doneList.txt', 'w') as f:
+        f.write(str(i))
 
 FinalDataFrame = FinalDataFrame[['Word','Meaning','ShortDefinition','LongDefinition','Synonyms','Antonyms']]
 FinalDataFrame.head()
