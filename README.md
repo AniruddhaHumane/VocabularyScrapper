@@ -16,11 +16,17 @@ It fetches the data from "vocabulary.com" and "mnemonicsdictionary.com", parses 
 ### How to use?
 
 Clone the repository
+
 Install the dependencies from requirements.txt
+
 *Wordlist.txt* contains the all the words whose details needs to be fetched.
+
 Each word is seperated by comma.
+
 Add your words to this file.
+
 run the python file vocabularyScrapper.py
+
 
 ---------------------------------------------------------------------------------------------------------------
 
