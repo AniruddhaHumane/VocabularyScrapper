@@ -109,13 +109,13 @@ for i,word in enumerate(WordList):
     print(', '.join(mnemonics))
     print()
     print("---------------------------------------------------------------------------------------------------------------------------------")   
-    
 
     tempDf = pd.DataFrame({
     'Category': ["Barrons"],
     'Word' : [word],
     'ShortDefinition' : [shortDescription],
-    'LongDefinition' : [longDescription.encode("utf-8")],
+    #'LongDefinition' : [longDescription.encode("utf-8")],
+    'LongDefinition' : [longDescription],
     'Meaning' : [', '.join(FinalDefs)],
     'Synonyms' : [', '.join(sum(Synon, []))],
     'Antonyms' : [', '.join(sum(Anton, []))],
@@ -136,3 +136,13 @@ FinalDataFrame = FinalDataFrame[['Word','Meaning','ShortDefinition','LongDefinit
 FinalDataFrame.head()
 FinalDataFrame.to_csv("Vocabulary.csv")
 print("------------------- DONE ------------------")
+
+# Next Steps to clean the CSV
+#
+# import ast
+# import pandas as pd
+# df = pd.read_csv('vocab.csv',header=None)
+# df[3] = df[3].apply( x : ast.literal_eval(x).decode('utf-8'))
+
+# Excel formula to concatenate
+# =CONCATENATE(A:A,"||","Small Def : ",B:B&CHAR(10)&CHAR(10),"Long Def : ",C:C&CHAR(10)&CHAR(10),"Definitions : ",D:D&CHAR(10)&CHAR(10),"Synonyms : ",E:E&CHAR(10)&CHAR(10),"Antonyms : ",F:F&CHAR(10)&CHAR(10),"Mnemonic : ",G:G&CHAR(10)&CHAR(10),"Sentence : ",H:H,"||||")
