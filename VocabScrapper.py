@@ -146,3 +146,38 @@ print("------------------- DONE ------------------")
 
 # Excel formula to concatenate
 # =CONCATENATE(A:A,"||","Small Def : ",B:B&CHAR(10)&CHAR(10),"Long Def : ",C:C&CHAR(10)&CHAR(10),"Definitions : ",D:D&CHAR(10)&CHAR(10),"Synonyms : ",E:E&CHAR(10)&CHAR(10),"Antonyms : ",F:F&CHAR(10)&CHAR(10),"Mnemonic : ",G:G&CHAR(10)&CHAR(10),"Sentence : ",H:H,"||||")
+
+'''
+##### QUIZLET LEARN SCREEN EXPANDING SCRIPT
+ document.getElementsByClassName("SiteHeaderWrapper")[0].remove();
+ document.getElementsByClassName("UIContainer")[0].style.maxWidth = "100%";
+ document.getElementsByClassName("ModeLayout-ad")[0].remove();
+ document.getElementsByClassName("ModeLayout")[0].style.cssText = 'top: 0 !important';
+ document.getElementsByClassName("ModeLayout-controls")[0].style.top = "0";
+ document.getElementsByClassName("AssistantViewController")[0].style.cssText = "font-size: 1.5rem; max-height: 100%;";
+ document.getElementsByClassName("FormattedText")[0].style.marginTop = 0;
+ document.getElementsByClassName("FormattedText")[0].style.height = "100%";
+ document.getElementsByClassName("FormattedText")[1].style.marginTop = 0;
+ document.getElementsByClassName("FormattedText")[1].style.height = "100%";
+
+#### This much is fine... I just find scrollbars irritating in flashcards so I remove them...
+
+ var styles = `
+  html {
+      overflow: scroll;
+      overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+      background: #FF0000;
+  }
+  `
+  var styleSheet = document.createElement("style")
+  styleSheet.style = "text/css"
+  styleSheet.innerText = styles
+  document.head.appendChild(styleSheet)
+'''
