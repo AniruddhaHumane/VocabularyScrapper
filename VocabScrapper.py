@@ -171,10 +171,10 @@ print("------------------- DONE ------------------")
       width: 0px;  /* Remove scrollbar space */
       background: transparent;  /* Optional: just make scrollbar invisible */
   }
-  /* Optional: show position indicator in red */
-  /*:-webkit-scrollbar-thumb {
-       background: #FF0000;
-  }*/
+ /* Optional: show position indicator on hover */
+  ::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0);
+  }
   `
   var styleSheet = document.createElement("style")
   styleSheet.style = "text/css"
